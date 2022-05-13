@@ -1,13 +1,35 @@
 package domain;
 
 public class ContaCorrente {
-    public int agencia;
-    public int numero;
-    public double saldo;
+    private int agencia;
+    private int numero;
+    private double saldo;
 
-    public void sacar(){}
+    private void sacar(){}
 
-    public void depositar(){}
+    private void depositar(){}
 
-    public void transferir(){}
+    private void transferir(){}
+
+    public ContaCorrente() {
+    }
+
+    public ContaCorrente(int agencia, int numero, double saldo) {
+        this.agencia = agencia;
+        this.numero = numero;
+        this.saldo = saldo;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
 }
