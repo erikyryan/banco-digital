@@ -1,34 +1,41 @@
 package domain;
 
 public abstract class Conta implements IConta{
-    protected static int AGENCIA_PADRAO;
+    protected static final int AGENCIA_PADRAO = 1;
+    private static int SEQUENCIAL = 1;
 
     protected int agencia;
     protected int numero;
     protected double saldo;
+    private final Cliente cliente;
 
-    public Conta(){
+    protected void imprimirInfosComuns() {
+        System.out.printf("Titular: %s\n",cliente.getNome());
+        System.out.printf("Agencia: %d\n",agencia);
+        System.out.printf("Numero: %d\n",numero);
+        System.out.printf("Saldo: %.2f\n",saldo);
     }
 
-    public Conta(int agencia, int numero, double saldo) {
-        this.agencia = agencia;
-        this.numero = numero;
-        this.saldo = saldo;
+    public Conta(Cliente cliente){
+        agencia = Conta.AGENCIA_PADRAO;
+        numero = SEQUENCIAL++;
+        this.cliente = cliente;
     }
 
     @Override
     public void sacar(double valor) {
-
+        saldo -= valor;
     }
 
     @Override
     public void depositar(double valor) {
-
+        saldo += valor;
     }
 
     @Override
-    public void transferir(double valor, Conta contaDestino) {
-
+    public void transferir(double valor, IConta contaDestino) {
+        sacar(valor);
+        contaDestino.depositar(valor);
     }
     public int getAgencia() {
         return agencia;
