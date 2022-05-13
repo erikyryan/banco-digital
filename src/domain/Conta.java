@@ -1,9 +1,11 @@
 package domain;
 
 public abstract class Conta implements IConta{
-    private int agencia;
-    private int numero;
-    private double saldo;
+    protected static int AGENCIA_PADRAO;
+
+    protected int agencia;
+    protected int numero;
+    protected double saldo;
 
     public Conta(){
     }
