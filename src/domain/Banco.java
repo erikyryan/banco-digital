@@ -1,10 +1,11 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Banco {
     private String nome;
-    private List<Conta> contas;
+    private final List<Conta> contas = new ArrayList<>();
 
     public String getNome() {
         return nome;
@@ -18,7 +19,8 @@ public class Banco {
         return contas;
     }
 
-    public void setContas(List<Conta> contas) {
-        this.contas = contas;
+    public void setConta(Conta conta) {
+        contas.add(conta);
+        System.out.println("Conta - " + conta.getNumero() + " aprovada!");
     }
 }

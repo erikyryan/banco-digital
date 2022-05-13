@@ -9,6 +9,7 @@ public abstract class Conta implements IConta{
     protected double saldo;
     private final Cliente cliente;
 
+
     protected void imprimirInfosComuns() {
         System.out.printf("Titular: %s\n",cliente.getNome());
         System.out.printf("Agencia: %d\n",agencia);
